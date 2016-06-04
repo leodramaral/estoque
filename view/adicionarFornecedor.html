@@ -1,0 +1,11 @@
+<div class="container">
+	<form name="fornecedorForm">
+
+		<input class="form-control" type="text" ng-model="fornecedor.nome" name="nome" placeholder="Nome" ng-required="true" ng-minlength="8" ng-maxlength="30">
+		<input class="form-control" type="text" ng-model="fornecedor.fone" name="fone" placeholder="Telefone" ng-required="true" ng-minlength="8" ng-maxlength="30">
+		<input class="form-control" type="text" ng-model="fornecedor.email" name="email" placeholder="Email" ng-required="true" ng-minlength="8" ng-maxlength="30">
+		<input class="form-control" type="text" ng-model="fornecedor.cpf" name="cpf" placeholder="CPF" ng-required="true" ng-minlength="8" ng-maxlength="30">
+
+		<button class="btn btn-success" ng-click="addFornecedor(fornecedor)" ng-disabled="fornecedorForm.$invalid">Adicionar</button>
+	</form>
+</div>

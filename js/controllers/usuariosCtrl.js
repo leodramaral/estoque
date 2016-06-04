@@ -6,7 +6,8 @@ angular.module("estoqueApp").controller("usuariosCtrl", function($scope, usuario
 
         usuariosAPI.postUsuario(usuario)
         .success(function(data){
-            console.log(data);
+            delete $scope.usuario;
+            $scope.usuarioForm.$setPristine();
         })
         .error(function(data, status){
             console.log(status);

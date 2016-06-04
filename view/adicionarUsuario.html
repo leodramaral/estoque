@@ -1,0 +1,6 @@
+<div class="container">
+	<form name="usuarioForm">
+		<input class="form-control" type="text" ng-model="usuario.nome_usuario" name="nome" placeholder="Nome de usuário" ng-required="true" ng-minlength="8" ng-maxlength="30">
+		<button class="btn btn-success" ng-click="addUsuario(usuario)" ng-disabled="usuarioForm.$invalid">Adicionar</button>
+	</form>
+</div>

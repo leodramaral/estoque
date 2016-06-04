@@ -9,7 +9,7 @@ header('Content-type: application/json; charset=utf-8');
 	$arr = json_decode($data, true);
 
 	if ($method == 'POST'){
-		DBInsert('usuario', $arr);
+		DBInsert('fornecedor', $arr);
 	} else {
 		echo "Método inválido";
 	}
