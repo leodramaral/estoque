@@ -1,1 +1,1 @@
-angular.module("estoqueApp", []);
+angular.module("estoqueApp", ["ngRoute"]);
