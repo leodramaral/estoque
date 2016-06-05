@@ -14,9 +14,15 @@ angular.module("estoqueApp").config(function ($routeProvider){
 		templateUrl: "view/cadastrarProduto.html",
 		controller: "produtosCtrl"
 	});
-		$routeProvider.when("/cadastrarCompra", {
+
+	$routeProvider.when("/cadastrarCompra", {
 		templateUrl: "view/cadastrarCompra.html",
 		controller: "comprasCtrl"
+	});
+
+	$routeProvider.when("/cadastrarBaixa", {
+		templateUrl: "view/cadastrarBaixa.html",
+		controller: "baixasCtrl"
 	});
 
 });
