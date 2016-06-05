@@ -1,0 +1,11 @@
+<div class="container">
+	<form name="produtoForm">
+
+		<input class="form-control" type="text" ng-model="produto.nome" name="nome" placeholder="Nome" ng-required="true" ng-minlength="3" ng-maxlength="80">
+
+		<input class="form-control" type="text" ng-model="produto.img_path" name="nome" ng-required="true">
+
+		<button class="btn btn-success" ng-click="addProduto(produto)" ng-disabled="produtoForm.$invalid">Adicionar</button>
+
+	</form>
+</div>
