@@ -8,13 +8,8 @@ header('Content-type: application/json; charset=utf-8');
 	if ($method == 'POST'){
 		$data = file_get_contents("php://input");
 		$arr = json_decode($data, true);
-
-		DBInsert('fornecedor', $arr);
-	}
-
-	if ($method == 'GET'){
-		$result = DBSelect('fornecedor');
-		echo json_encode($result, JSON_PRETTY_PRINT);
+		
+		DBInsert('compra', $arr);
 	}
 
 	else {

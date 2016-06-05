@@ -4,7 +4,12 @@ angular.module("estoqueApp").factory("fornecedoresAPI", function ($http){
 		return $http.post("api/fornecedores.php", fornecedor);
 	}
 
+	var _getFornecedores = function(){
+		return $http.get("api/fornecedores.php");
+	}
+
 	return {
-		postFornecedor: _postFornecedor
+		postFornecedor: _postFornecedor,
+		getFornecedores: _getFornecedores
 	}
 });

@@ -4,8 +4,13 @@ angular.module("estoqueApp").factory("produtosAPI", function ($http){
 		return $http.post("api/produtos.php", produto);
 	}
 
+	var _getProdutos = function(){
+		return $http.get("api/produtos.php");
+	}
+
 	return {
-		postProduto: _postProduto
+		postProduto: _postProduto,
+		getProdutos: _getProdutos
 	}
 
 });
