@@ -25,6 +25,11 @@ header('Content-type: application/json; charset=utf-8');
 		}
 	}
 
+	if ($method == 'GET'){
+		$result = DBSelect('produto_solicitacao_baixa_estoque, produto, usuario', 'WHERE produto_solicitacao_baixa_estoque.produto_id = produto.id AND produto_solicitacao_baixa_estoque.usuario_id = usuario.id', 'produto_solicitacao_baixa_estoque.di, produto.nome AS nome_produto, produto_solicitacao_baixa_estoque.quantidade, usuario.nome_usuario AS nome_usuario');
+		echo json_encode($result, JSON_PRETTY_PRINT);
+	}
+
 	else {
 		echo "Método inválido";
 	}

@@ -4,8 +4,13 @@ angular.module("estoqueApp").factory("baixasAPI", function ($http){
 		return $http.post("api/baixas.php", baixa);
 	}
 
+	var _getBaixas = function(){
+		return $http.get("api/baixas.php");
+	}
+
 	return {
-		postBaixa: _postBaixa
+		postBaixa: _postBaixa,
+		getBaixas: _getBaixas
 	}
 	
 });

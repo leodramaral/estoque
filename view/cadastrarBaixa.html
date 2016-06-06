@@ -1,22 +1,29 @@
-<div class="container">
-	<form name="baixaForm">
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3> 
+			Cadastro de Baixa
+		</h3>
+	</div>
+	<div class="panel-body">
+		<form class="formularioCadastro" name="baixaForm">
 
-		<select class="form-control" name="usuario" ng-model="baixa.usuario_id">
-			<option value="" disabled >Selecione o usuário</option>
-			<option ng-repeat="usuario in usuarios | orderBy: 'nome'" value="{{usuario.id}}">{{usuario.nome_usuario}}
-			</option>
-		</select>
+			<select class="form-control" name="usuario" ng-model="baixa.usuario_id">
+				<option value="" disabled >Selecione o usuário</option>
+				<option ng-repeat="usuario in usuarios | orderBy: 'nome'" value="{{usuario.id}}">{{usuario.nome_usuario}}
+				</option>
+			</select>
+			<br>
+			<select class="form-control" name="produto" ng-model="baixa.produto_id">
+				<option value="" disabled >Selecione um produto</option>
+				<option ng-repeat="produto in produtos | orderBy: 'nome'" value="{{produto.produto_id}}">{{produto.nome}}</option>
+			</select>
+			<br>
+			<select class="form-control" name="quantidade" ng-model="baixa.quantidade" ng-options="valor for valor in quantidade">
+				<option value="" disabled >Selecione a quantidade</option>
+			</select>
+			<br>
+			<button class="btn btn-success btn-group-justified" ng-click="addBaixa(baixa)">Adicionar</button>
 
-		<select class="form-control" name="produto" ng-model="baixa.produto_id">
-			<option value="" disabled >Selecione um produto</option>
-			<option ng-repeat="produto in produtos | orderBy: 'nome'" value="{{produto.produto_id}}">{{produto.nome}}</option>
-		</select>
-
-		<select class="form-control" name="quantidade" ng-model="baixa.quantidade" ng-options="valor for valor in quantidade">
-			<option value="" disabled >Selecione a quantidade</option>
-		</select>
-
-		<button class="btn btn-success" ng-click="addBaixa(baixa)">Adicionar</button>
-
-	</form>
+		</form>
+	</div>
 </div>

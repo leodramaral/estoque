@@ -1,14 +1,21 @@
-<div class="container">
-	<form name="fornecedorForm">
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3>
+			Cadastro de Fornecedor
+		</h3>
+	</div>
+	<div class="panel-body">
+		<form class="formularioCadastro" name="fornecedorForm">
 
-		<input class="form-control" type="text" ng-model="fornecedor.nome" name="nome" placeholder="Nome" ng-required="true" ng-minlength="3" ng-maxlength="80">
-
-		<input class="form-control" type="text" ng-model="fornecedor.cpf" name="cpf" placeholder="CPF (Somente números)" ng-required="true" ui-cpf>
-
-		<input class="form-control" type="text" ng-model="fornecedor.fone" name="fone" placeholder="Telefone (Com DDD)" ng-required="true" ui-telefone>
-
-		<input class="form-control" type="email" ng-model="fornecedor.email" name="email" placeholder="Email" ng-required="true" ng-minlength="10" ng-maxlength="80">
-
-		<button class="btn btn-success" ng-click="addFornecedor(fornecedor)" ng-disabled="fornecedorForm.$invalid">Adicionar</button>
-	</form>
+			<input class="form-control" type="text" ng-model="fornecedor.nome" name="nome" placeholder="Nome" ng-required="true" ng-minlength="3" ng-maxlength="80">
+			<br>
+			<input class="form-control" type="text" ng-model="fornecedor.cpf" name="cpf" placeholder="CPF (Somente números)" ng-required="true" ui-cpf>
+			<br>
+			<input class="form-control" type="text" ng-model="fornecedor.fone" name="fone" placeholder="Telefone (Com DDD)" ng-required="true" ui-telefone>
+			<br>
+			<input class="form-control" type="email" ng-model="fornecedor.email" name="email" placeholder="Email" ng-required="true" ng-minlength="10" ng-maxlength="80">
+			<br>
+			<button class="btn btn-success btn-group-justified" ng-click="addFornecedor(fornecedor)" ng-disabled="fornecedorForm.$invalid">Cadastrar</button>
+		</form>
+	</div>
 </div>

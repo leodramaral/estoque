@@ -1,0 +1,30 @@
+<div class="row">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3>Lista do Estoque</h3>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-12">
+					<input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisa"/>
+				</div>
+			</div>
+			<br>
+			<table class="table table-bordered table-striped">
+				<tr>
+					<th>Produto</th>
+					<th>Quantidade</th>
+					<th>Quantidade Baixa</th>
+					<th>Data</th>
+				</tr>
+
+				<tr ng-repeat="estoque in estoques | filter: criterioDeBusca | orderBy: nome">
+					<td>{{estoque.nome_produto}}</td>
+					<td>{{estoque.quantidade}}</td>
+					<td>{{estoque.quantidade_baixa}}</td>
+					<td>{{estoque.data_criacao}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

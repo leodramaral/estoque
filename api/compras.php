@@ -31,7 +31,7 @@ header('Content-type: application/json; charset=utf-8');
 	}
 
 	if ($method == 'GET'){
-		$result = DBSelect('compra, produto, fornecedor', 'WHERE compra.produto_id = produto.id AND compra.fornecedor_id = fornecedor.id', 'produto.id, produto.nome AS nome_produto, compra.quantidade, compra.value_product, fornecedor.nome AS nome_fornecedor');
+		$result = DBSelect('compra, produto, fornecedor', 'WHERE compra.produto_id = produto.id AND compra.fornecedor_id = fornecedor.id', 'produto.id, produto.nome AS nome_produto, compra.quantidade, compra.value_product, fornecedor.nome AS nome_fornecedor, compra.data_criacao');
 		echo json_encode($result, JSON_PRETTY_PRINT);
 	}
 

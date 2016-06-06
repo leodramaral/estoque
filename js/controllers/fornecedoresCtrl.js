@@ -11,4 +11,16 @@ angular.module("estoqueApp").controller("fornecedoresCtrl", function($scope, for
         });
 	}
 
+	var listarFornecedores = function(){
+		fornecedoresAPI.getFornecedores()
+        .success(function(data){
+            $scope.fornecedores = data;
+        })
+        .error(function(data, status){
+            console.log(status);
+        });
+	}
+
+	listarFornecedores();
+	
 });

@@ -1,19 +1,35 @@
-<div>
-	<table class="table table-striped">
-		<tr>
-			<th>Nome</th>
-			<th>Quantidade</th>
-			<th>Valor</th>
-			<th>Fornecedor</th>
-		</tr>
+<div class="row">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3>Lista de Compras</h3>
+		</div>
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-8">
+					<input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisa"/>
+				</div>
+				<div class="col-md-4">
+					<a class="btn btn-success btn-group-justified" href="#/cadastrarCompra">Cadastrar Compra</a>
+				</div>
+			</div>
+			<br>
+			<table class="table table-bordered table-striped">
+				<tr>
+					<th>Nome</th>
+					<th>Quantidade</th>
+					<th>Valor</th>
+					<th>Fornecedor</th>
+					<th>Data</th>
+				</tr>
 
-		<tr ng-repeat="compra in compras">
-			<td>{{compra.nome_produto}}</td>
-			<td>{{compra.quantidade}}</td>
-			<td>{{compra.value_product}}</td>
-			<td>{{compra.nome_fornecedor}}</td>
-		</tr>
-	</table>
-
-	<a class="btn btn-primary" href="#/cadastrarCompra">Cadastrar Compra</a>
+				<tr ng-repeat="compra in compras | filter: criterioDeBusca | orderBy: data_criacao">
+					<td>{{compra.nome_produto}}</td>
+					<td>{{compra.quantidade}}</td>
+					<td>{{compra.value_product}}</td>
+					<td>{{compra.nome_fornecedor}}</td>
+					<td>{{compra.data_criacao}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
 </div>

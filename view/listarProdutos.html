@@ -1,0 +1,32 @@
+<div class="row">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3>
+				Lista de Produtos
+			</h3>
+		</div>
+
+		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-8">
+					<input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="Pesquisa"/>
+				</div>
+				<div class="col-md-4">
+					<a class="btn btn-success btn-group-justified" href="#/cadastrarProduto">Cadastrar Produto</a>
+				</div>
+			</div>
+			<br>
+			<table class="table table-bordered table-striped">
+				<tr>
+					<th>Imagem</th>
+					<th>Nome</th>
+				</tr>
+
+				<tr ng-repeat="produto in produtos | filter: criterioDeBusca | orderBy: nome">
+					<td>{{produto.img_path}}</td>
+					<td>{{produto.nome}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>

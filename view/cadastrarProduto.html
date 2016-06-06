@@ -1,11 +1,18 @@
-<div class="container">
-	<form name="produtoForm">
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3>
+			Cadastro de Produto
+		</h3>
+	</div>
+	<div class="panel-body">
+		<form class="formularioCadastro" name="produtoForm">
 
-		<input class="form-control" type="text" ng-model="produto.nome" name="nome" placeholder="Nome" ng-required="true" ng-minlength="3" ng-maxlength="80">
+			<input class="form-control" type="text" ng-model="produto.nome" name="nome" placeholder="Nome" ng-required="true" ng-minlength="3" ng-maxlength="80">
+			<br>
+			<input class="form-control" type="text" ng-model="produto.img_path" name="nome" ng-required="true">
+			<br>
+			<button class="btn btn-success btn-group-justified" ng-click="addProduto(produto)" ng-disabled="produtoForm.$invalid">Cadastrar</button>
 
-		<input class="form-control" type="text" ng-model="produto.img_path" name="nome" ng-required="true">
-
-		<button class="btn btn-success" ng-click="addProduto(produto)" ng-disabled="produtoForm.$invalid">Adicionar</button>
-
-	</form>
+		</form>
+	</div>
 </div>

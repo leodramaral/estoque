@@ -13,5 +13,17 @@ angular.module("estoqueApp").controller("usuariosCtrl", function($scope, usuario
             console.log(status);
         });
 	};
+
+    var listarUsuarios = function(){
+        usuariosAPI.getUsuarios()
+        .success(function(data){
+            $scope.usuarios = data;
+        })
+        .error(function(data, status){
+            console.log(status);
+        });
+    }
+
+    listarUsuarios();
     
 });

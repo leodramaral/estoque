@@ -13,4 +13,17 @@ angular.module("estoqueApp").controller("produtosCtrl", function ($scope, produt
 
 	};
 
+	var listarProdutos = function(){
+		produtosAPI.getProdutos()
+        .success(function(data){
+            $scope.produtos = data;
+        })
+        .error(function(data, status){
+            console.log(status);
+        });
+	}
+
+	listarProdutos();
+	
+
 });

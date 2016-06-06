@@ -1,24 +1,28 @@
-<div class="container">
-
-	<form name="compraForm">
-		<select class="form-control" name="produto" ng-model="compra.produto_id">
-			<option value="" disabled>Selecione um produto</option>
-			<option ng-repeat="produto in produtos | orderBy: 'nome'" value="{{produto.id}}">{{produto.nome}}</option>
-		</select>
-
-		<select class="form-control" name="quantidade" ng-model="compra.quantidade" ng-options="valor for valor in quantidade">
-			<option value="" disabled >Selecione a quantidade</option>
-		</select>
-
-		<input class="form-control" type="text" name="valor" ng-model="compra.value_product" placeholder="Valor">
-		
-		<select class="form-control" name="fornecedor" ng-model="compra.fornecedor_id">
-			<option value="" disabled >Selecione um fornecedor</option>
-			<option ng-repeat="fornecedor in fornecedores | orderBy: 'nome'" value="{{fornecedor.id}}">{{fornecedor.nome}}</option>
-		</select>
-
-		<button class="btn btn-success" ng-click="addCompra(compra)">Adicionar</button>
-
-	</form>
-
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3>
+			Cadastro de Compra
+		</h3>
+	</div>
+	<div class="panel-body">
+		<form class="formularioCadastro" name="compraForm">
+			<select class="form-control" name="produto" ng-model="compra.produto_id">
+				<option value="" disabled>Selecione um produto</option>
+				<option ng-repeat="produto in produtos | orderBy: 'nome'" value="{{produto.id}}">{{produto.nome}}</option>
+			</select>
+			<br>
+			<select class="form-control" name="quantidade" ng-model="compra.quantidade" ng-options="valor for valor in quantidade">
+				<option value="" disabled >Selecione a quantidade</option>
+			</select>
+			<br>
+			<input class="form-control" type="text" name="valor" ng-model="compra.value_product" placeholder="Valor">
+			<br>
+			<select class="form-control" name="fornecedor" ng-model="compra.fornecedor_id">
+				<option value="" disabled >Selecione um fornecedor</option>
+				<option ng-repeat="fornecedor in fornecedores | orderBy: 'nome'" value="{{fornecedor.id}}">{{fornecedor.nome}}</option>
+			</select>
+			<br>
+			<button class="btn btn-success btn-group-justified" ng-click="addCompra(compra)">Cadastrar</button>
+		</form>
+	</div>
 </div>
