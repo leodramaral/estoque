@@ -9,8 +9,11 @@ angular.module("estoqueApp").controller("comprasCtrl", function($scope, comprasA
 		comprasAPI.postCompras(compra)
 		.success(function (data){
 			console.log(data);
+			$scope.message = "Compra cadastrada com sucesso!";
+			delete $scope.compra;
+            $scope.compraForm.$setPristine();
 		}).error(function(data, status){
-            console.log(status);
+            $scope.message = "Ocorreu um erro ao conectar a base de dados.";
         });
 	}
 
@@ -19,7 +22,7 @@ angular.module("estoqueApp").controller("comprasCtrl", function($scope, comprasA
 		.success(function(data){
 			$scope.compras = data;
 		}).error(function(data, status){
-			console.log(status);
+			$scope.message = "Ocorreu um erro ao conectar a base de dados.";
 		})
 	}
 
@@ -28,7 +31,7 @@ angular.module("estoqueApp").controller("comprasCtrl", function($scope, comprasA
 		.success(function (data){
 			$scope.produtos = data;
 		}).error(function(data, status){
-            console.log(status);
+			$scope.message = "Ocorreu um erro ao conectar a base de dados.";
         });
 	}
 
@@ -37,7 +40,7 @@ angular.module("estoqueApp").controller("comprasCtrl", function($scope, comprasA
 		.success(function (data){
 			$scope.fornecedores = data;
 		}).error(function(data, status){
-            console.log(status);
+			$scope.message = "Ocorreu um erro ao conectar a base de dados.";
         });
 	}
 

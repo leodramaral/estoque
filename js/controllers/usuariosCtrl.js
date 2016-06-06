@@ -6,11 +6,17 @@ angular.module("estoqueApp").controller("usuariosCtrl", function($scope, usuario
 
         usuariosAPI.postUsuario(usuario)
         .success(function(data){
+            if (!data.success){
+                $scope.message = "Usuário já cadastrado";
+            } else {
+                console.log(data);
+                $scope.message = "Usuário cadastrado com sucesso!";
+            }
             delete $scope.usuario;
             $scope.usuarioForm.$setPristine();
         })
         .error(function(data, status){
-            console.log(status);
+            $scope.message = "Ocorreu um erro ao conectar a base de dados.";
         });
 	};
 
@@ -20,7 +26,7 @@ angular.module("estoqueApp").controller("usuariosCtrl", function($scope, usuario
             $scope.usuarios = data;
         })
         .error(function(data, status){
-            console.log(status);
+            $scope.message = "Ocorreu um erro ao conectar a base de dados.";
         });
     }
 

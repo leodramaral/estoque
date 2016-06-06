@@ -7,12 +7,21 @@ header('Content-type: application/json; charset=utf-8');
 
 	if ($method == 'POST'){
 		$data = file_get_contents("php://input");
-		$arr = json_decode($data, true);
+		$array = json_decode($data, true);
+		$nome_produto = $array['nome'];
+		$check = DBSelect('produto', "WHERE nome = '{$nome_produto}'");
 
-		DBInsert('produto', $arr);
-	}
+		if($check){
+			$retorno['success'] = false;
+			echo json_encode($retorno);
+			return false;
+		} else {
+			DBInsert('produto', $array);
+			$retorno['success'] = true;
+			echo json_encode($retorno);
+		}
 
-	if ($method == 'GET'){
+	} else if ($method == 'GET'){
 
 		if (isset($_GET['tipo'])){
 			if ($_GET['tipo'] == 'estoque'){
@@ -26,8 +35,6 @@ header('Content-type: application/json; charset=utf-8');
 			$result = DBSelect('produto');
 			echo json_encode($result, JSON_PRETTY_PRINT);
 		}
-	}
-
-	else {
+	} else {
 		echo "Método inválido";
 	}

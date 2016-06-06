@@ -5,6 +5,7 @@
 		</h3>
 	</div>
 	<div class="panel-body">
+		<div id="messages" class="well" ng-show="message">{{ message }}</div>
 		<form class="formularioCadastro" name="compraForm">
 			<select class="form-control" name="produto" ng-model="compra.produto_id">
 				<option value="" disabled>Selecione um produto</option>

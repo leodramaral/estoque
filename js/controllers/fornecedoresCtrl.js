@@ -3,11 +3,17 @@ angular.module("estoqueApp").controller("fornecedoresCtrl", function($scope, for
 	$scope.addFornecedor = function(fornecedor){
 		fornecedoresAPI.postFornecedor(fornecedor)
 		.success(function (data){
+			if (!data.success){
+                $scope.message = "Fornecedor com o mesmo CPF já cadastrado";
+            } else {
+                console.log(data);
+                $scope.message = "Fornecedor cadastrado com sucesso!";
+            }
 			delete $scope.fornecedor;
-            $scope.fornecedorForm.$setPristine();
+			$scope.fornecedorForm.$setPristine();
 		})
 		.error(function(data, status){
-            console.log(status);
+            $scope.message = "Ocorreu um erro ao conectar a base de dados.";
         });
 	}
 
@@ -17,7 +23,7 @@ angular.module("estoqueApp").controller("fornecedoresCtrl", function($scope, for
             $scope.fornecedores = data;
         })
         .error(function(data, status){
-            console.log(status);
+            $scope.message = "Ocorreu um erro ao conectar a base de dados.";
         });
 	}
 

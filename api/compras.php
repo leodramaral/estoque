@@ -20,7 +20,6 @@ header('Content-type: application/json; charset=utf-8');
 
 		if ($quantidadeProduto){
 			(string)$arrayProdutoEstoque['quantidade'] = (int)$array['quantidade'] + $quantidadeProduto[0]['quantidade'];
-
 			DBUpdate('produto_estoque', $arrayProdutoEstoque, "produto_id = '{$produto_id}'");
 
 		} else {
@@ -28,13 +27,12 @@ header('Content-type: application/json; charset=utf-8');
 		}
 
 		DBInsert('compra', $array);
-	}
-
-	if ($method == 'GET'){
+		$retorno['success'] = true;
+		echo json_encode($retorno);
+		
+	} else if ($method == 'GET'){
 		$result = DBSelect('compra, produto, fornecedor', 'WHERE compra.produto_id = produto.id AND compra.fornecedor_id = fornecedor.id', 'produto.id, produto.nome AS nome_produto, compra.quantidade, compra.value_product, fornecedor.nome AS nome_fornecedor, compra.data_criacao');
 		echo json_encode($result, JSON_PRETTY_PRINT);
-	}
-
-	else {
+	} else {
 		echo "Método inválido";
 	}

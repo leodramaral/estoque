@@ -5,10 +5,11 @@
 		</h3>
 	</div>
 	<div class="panel-body">
+		<div id="messages" class="well" ng-show="message">{{ message }}</div>
 		<form class="formularioCadastro" name="usuarioForm">
 			<input class="form-control" type="text" ng-model="usuario.nome_usuario" name="nome" placeholder="Nome de usuário" ng-required="true" ng-minlength="8" ng-maxlength="30">
 			<br>
-			<button class="btn btn-success" ng-click="addUsuario(usuario)" ng-disabled="usuarioForm.$invalid">Cadastrar</button>
+			<button class="btn btn-success btn-group-justified" ng-click="addUsuario(usuario)" ng-disabled="usuarioForm.$invalid">Cadastrar</button>
 		</form>
 	</div>
 </div>

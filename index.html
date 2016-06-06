@@ -23,6 +23,7 @@
 
 		<br>
 
+		<div id="messages" class="well" ng-show="message">{{ message }}</div>
 		<div ng-view></div>
 	</div>
 
@@ -45,10 +46,11 @@
 	<script type="text/javascript" src="js/services/produtosAPIService.js"></script>
 	<script type="text/javascript" src="js/services/comprasAPIService.js"></script>
 	<script type="text/javascript" src="js/services/baixasAPIService.js"></script>
-
+	
 	<script type="text/javascript" src="js/config/routeConfig.js"></script>
 	
 	<script type="text/javascript" src="js/directives/uiCpfDirective.js"></script>
 	<script type="text/javascript" src="js/directives/uiTelefoneDirective.js"></script>
+	
 </body>
 </html>

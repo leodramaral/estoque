@@ -6,7 +6,7 @@ angular.module("estoqueApp").controller("estoqueCtrl", function ($scope, estoque
             $scope.estoques = data;
         })
         .error(function(data, status){
-            console.log(status);
+            $scope.message = "Ocorreu um erro ao conectar a base de dados.";
         });
 	}
 

@@ -23,7 +23,7 @@
 				</tr>
 
 				<tr ng-repeat="produto in produtos | filter: criterioDeBusca | orderBy: nome">
-					<td>{{produto.img_path}}</td>
+					<td><img class="center-block img-produto" ng-src="imagens/{{produto.img_path}}"/></td>
 					<td>{{produto.nome}}</td>
 				</tr>
 			</table>

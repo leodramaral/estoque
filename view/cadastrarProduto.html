@@ -5,13 +5,13 @@
 		</h3>
 	</div>
 	<div class="panel-body">
+		<div id="messages" class="well" ng-show="message">{{ message }}</div>
 		<form class="formularioCadastro" name="produtoForm">
-
 			<input class="form-control" type="text" ng-model="produto.nome" name="nome" placeholder="Nome" ng-required="true" ng-minlength="3" ng-maxlength="80">
 			<br>
-			<input class="form-control" type="text" ng-model="produto.img_path" name="nome" ng-required="true">
+			<input type="file" id="imagem" name="imagem">
 			<br>
-			<button class="btn btn-success btn-group-justified" ng-click="addProduto(produto)" ng-disabled="produtoForm.$invalid">Cadastrar</button>
+			<button id="cadastrarProduto" class="btn btn-success btn-group-justified" ng-click="addProduto(produto)" ng-disabled="produtoForm.$invalid">Cadastrar</button>
 
 		</form>
 	</div>

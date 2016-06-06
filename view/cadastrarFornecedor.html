@@ -5,8 +5,8 @@
 		</h3>
 	</div>
 	<div class="panel-body">
+		<div id="messages" class="well" ng-show="message">{{ message }}</div>
 		<form class="formularioCadastro" name="fornecedorForm">
-
 			<input class="form-control" type="text" ng-model="fornecedor.nome" name="nome" placeholder="Nome" ng-required="true" ng-minlength="3" ng-maxlength="80">
 			<br>
 			<input class="form-control" type="text" ng-model="fornecedor.cpf" name="cpf" placeholder="CPF (Somente números)" ng-required="true" ui-cpf>

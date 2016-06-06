@@ -3,10 +3,17 @@ angular.module("estoqueApp").controller("baixasCtrl", function($scope, baixasAPI
 	$scope.addBaixa = function(baixa){
 		baixasAPI.postBaixa(baixa)
 		.success(function (data){
-			console.log(data);
+			if (!data.success){
+                $scope.message = "A quantidade selecionada está acima da quantidade em estoque";
+            } else {
+                console.log(data);
+                $scope.message = "Baixa cadastrada com sucesso!";
+            }
+            delete $scope.baixa;
+            $scope.baixaForm.$setPristine();
 		})
 		.error(function(data, status){
-            console.log(status);
+            $scope.message = "Ocorreu um erro ao conectar a base de dados.";
         });
 	}
 
@@ -15,7 +22,7 @@ angular.module("estoqueApp").controller("baixasCtrl", function($scope, baixasAPI
 		.success(function(data){
 			$scope.baixas = data;
 		}).error(function(data, status){
-			console.log(status);
+			$scope.message = "Ocorreu um erro ao conectar a base de dados.";
 		})
 	}
 
@@ -25,7 +32,7 @@ angular.module("estoqueApp").controller("baixasCtrl", function($scope, baixasAPI
 			$scope.produtos = data;
 		})
 		.error(function(data, status){
-            console.log(status);
+            $scope.message = "Ocorreu um erro ao conectar a base de dados.";
         });
 	}
 
@@ -35,7 +42,7 @@ angular.module("estoqueApp").controller("baixasCtrl", function($scope, baixasAPI
 			$scope.usuarios = data;
 		})
 		.error(function(data, status){
-            console.log(status);
+            $scope.message = "Ocorreu um erro ao conectar a base de dados.";
         });
 	}
 
@@ -43,7 +50,7 @@ angular.module("estoqueApp").controller("baixasCtrl", function($scope, baixasAPI
 
 	var carregarQuantidade = function(){
 		var i;
-		for (i = 0; i <= 50; i++ ){
+		for (i = 1; i <= 50; i++ ){
 			$scope.quantidade.push(i);
 		}
 	}

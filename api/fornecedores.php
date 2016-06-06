@@ -7,16 +7,22 @@ header('Content-type: application/json; charset=utf-8');
 
 	if ($method == 'POST'){
 		$data = file_get_contents("php://input");
-		$arr = json_decode($data, true);
+		$array = json_decode($data, true);
+		$cpf = $array['cpf'];
+		$check = DBSelect('fornecedor', "WHERE cpf = '{$cpf}'");
 
-		DBInsert('fornecedor', $arr);
-	}
-
-	if ($method == 'GET'){
+		if ($check){
+			$retorno['success'] = false;
+			echo json_encode($retorno);
+			return false;
+		} else {
+			DBInsert('fornecedor', $array);
+			$retorno['success'] = true;
+			echo json_encode($retorno);
+		}
+	} else if ($method == 'GET'){
 		$result = DBSelect('fornecedor');
 		echo json_encode($result, JSON_PRETTY_PRINT);
-	}
-
-	else {
+	} else {
 		echo "Método inválido";
 	}
