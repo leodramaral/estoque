@@ -1,7 +1,7 @@
 <div class="container">
 	<form name="baixaForm">
 
-		<select class="form-control" name="usuaerio" ng-model="baixa.usuario_id">
+		<select class="form-control" name="usuario" ng-model="baixa.usuario_id">
 			<option value="" disabled >Selecione o usuário</option>
 			<option ng-repeat="usuario in usuarios | orderBy: 'nome'" value="{{usuario.id}}">{{usuario.nome_usuario}}
 			</option>
@@ -9,7 +9,7 @@
 
 		<select class="form-control" name="produto" ng-model="baixa.produto_id">
 			<option value="" disabled >Selecione um produto</option>
-			<option ng-repeat="produto in produtos | orderBy: 'nome'" value="{{produto.id}}">{{produto.nome}}</option>
+			<option ng-repeat="produto in produtos | orderBy: 'nome'" value="{{produto.produto_id}}">{{produto.nome}}</option>
 		</select>
 
 		<select class="form-control" name="quantidade" ng-model="baixa.quantidade" ng-options="valor for valor in quantidade">

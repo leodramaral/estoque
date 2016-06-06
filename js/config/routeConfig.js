@@ -15,6 +15,11 @@ angular.module("estoqueApp").config(function ($routeProvider){
 		controller: "produtosCtrl"
 	});
 
+	$routeProvider.when("/listarCompras", {
+		templateUrl: "view/listarCompras.html",
+		controller: "comprasCtrl"
+	});
+
 	$routeProvider.when("/cadastrarCompra", {
 		templateUrl: "view/cadastrarCompra.html",
 		controller: "comprasCtrl"
@@ -24,5 +29,7 @@ angular.module("estoqueApp").config(function ($routeProvider){
 		templateUrl: "view/cadastrarBaixa.html",
 		controller: "baixasCtrl"
 	});
+
+	$routeProvider.otherwise({redirectTo: "/listarCompras"});
 
 });

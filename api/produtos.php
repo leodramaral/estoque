@@ -13,8 +13,19 @@ header('Content-type: application/json; charset=utf-8');
 	}
 
 	if ($method == 'GET'){
-		$result = DBSelect('produto');
-		echo json_encode($result, JSON_PRETTY_PRINT);
+
+		if (isset($_GET['tipo'])){
+			if ($_GET['tipo'] == 'estoque'){
+				$result = DBSelect('produto, produto_estoque', ' WHERE produto.id = produto_estoque.produto_id');
+				echo json_encode($result, JSON_PRETTY_PRINT);
+			} else {
+				$result = DBSelect('produto');
+				echo json_encode($result, JSON_PRETTY_PRINT);	
+			}
+		} else {
+			$result = DBSelect('produto');
+			echo json_encode($result, JSON_PRETTY_PRINT);
+		}
 	}
 
 	else {

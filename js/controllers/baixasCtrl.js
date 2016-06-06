@@ -10,8 +10,8 @@ angular.module("estoqueApp").controller("baixasCtrl", function($scope, baixasAPI
         });
 	}
 
-	var carregarProdutos = function(){
-		produtosAPI.getProdutos()
+	var carregarProdutosNoEstoque = function(){
+		produtosAPI.getProdutosNoEstoque()
 		.success(function (data){
 			$scope.produtos = data;
 		})
@@ -40,7 +40,7 @@ angular.module("estoqueApp").controller("baixasCtrl", function($scope, baixasAPI
 	}
 
 	carregarQuantidade();
-	carregarProdutos();
+	carregarProdutosNoEstoque();
 	carregarUsuarios();
 
 });

@@ -11,9 +11,7 @@
 		</select>
 
 		<input class="form-control" type="text" name="valor" ng-model="compra.value_product" placeholder="Valor">
-
-		<input class="form-control" type="text" name="data" ng-model="compra.data_criacao" placeholder="Data da compra">
-
+		
 		<select class="form-control" name="fornecedor" ng-model="compra.fornecedor_id">
 			<option value="" disabled >Selecione um fornecedor</option>
 			<option ng-repeat="fornecedor in fornecedores | orderBy: 'nome'" value="{{fornecedor.id}}">{{fornecedor.nome}}</option>

@@ -1,0 +1,19 @@
+<div>
+	<table class="table table-striped">
+		<tr>
+			<th>Nome</th>
+			<th>Quantidade</th>
+			<th>Valor</th>
+			<th>Fornecedor</th>
+		</tr>
+
+		<tr ng-repeat="compra in compras">
+			<td>{{compra.nome_produto}}</td>
+			<td>{{compra.quantidade}}</td>
+			<td>{{compra.value_product}}</td>
+			<td>{{compra.nome_fornecedor}}</td>
+		</tr>
+	</table>
+
+	<a class="btn btn-primary" href="#/cadastrarCompra">Cadastrar Compra</a>
+</div>
