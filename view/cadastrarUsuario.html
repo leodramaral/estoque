@@ -5,7 +5,15 @@
 		</h3>
 	</div>
 	<div class="panel-body">
-		<div id="messages" class="well" ng-show="message">{{ message }}</div>
+
+	<ui-error ng-show="error">
+		Já existe um usuário com o mesmo nome cadastrado!
+	</ui-error>
+
+	<ui-success ng-show="success">
+		Usuário cadastrado com sucesso!
+	</ui-success>
+
 		<form class="formularioCadastro" name="usuarioForm">
 			<input class="form-control" type="text" ng-model="usuario.nome_usuario" name="nome" placeholder="Nome de usuário" ng-required="true" ng-minlength="8" ng-maxlength="30">
 			<br>

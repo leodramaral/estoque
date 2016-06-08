@@ -7,10 +7,11 @@ angular.module("estoqueApp").controller("usuariosCtrl", function($scope, usuario
         usuariosAPI.postUsuario(usuario)
         .success(function(data){
             if (!data.success){
-                $scope.message = "Usuário já cadastrado";
+                $scope.error = true;
+                $scope.success = false; 
             } else {
-                console.log(data);
-                $scope.message = "Usuário cadastrado com sucesso!";
+                $scope.success = true;
+                $scope.error = false;
             }
             delete $scope.usuario;
             $scope.usuarioForm.$setPristine();
